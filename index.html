@@ -28,19 +28,18 @@
       class ContactForm extends React.Component {
         constructor(props) {
           super(props);
-          this.state = { name: "", email: "", message: "" };
+          this.state = {email: "", showPopup: false};
         }
 
         /* Here’s the juicy bit for posting the form submission */
 
         handleSubmit = e => {
+          this.setState({showPopup: true});
           fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...this.state })
-          })
-            .then(() => alert("Success!"))
-            .catch(error => alert(error));
+          }).catch()
 
           e.preventDefault();
         };
@@ -48,10 +47,28 @@
         handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
         render() {
-          const { name, email, message } = this.state;
+          const { email, showPopup} = this.state;
           return (
-            <div>
-                <div id="discord">Join Discord</div>
+            <div id="main">
+              <div id="popup" style={{display: showPopup ? 'flex' : 'none' }}>
+                <div>
+                  <div id="x" onClick={() => this.setState({showPopup: false})}>
+                    <img src="x.png" width="14" height="14" />
+                  </div>
+                  <h2>
+                    You are now on the waitlist!<br/>
+                    We will contact you soon.
+                  </h2>
+                  <div class="b3">
+                    Please join our Discord on the mean time and ask questions.
+                  </div>
+                  <a class="discord" href="https://discord.com/channels/1054195113078833203/1054195114714615882" target="_blank">
+                    Join Discord
+                  </a>
+                </div>
+              </div>
+                <a id="top-right" class="discord" href="https://discord.com/channels/1054195113078833203/1054195114714615882" target="_blank">
+                  Join Discord </a>
                 <div id="content">
                   <img id="logo" src="logo.png" width="500" height="600"></img>
                   <h1>
@@ -59,7 +76,7 @@
                     with no code
                   </h1>
                   <div class="center gray-text">
-                    aify.us is launching soon. Enter your email below to get early access.
+                    aify.us is launching soon. Enter your email<br/> below to get early access.
                   </div>
                   <form onSubmit={this.handleSubmit}>
                     <div id="email-input">

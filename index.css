@@ -3,6 +3,11 @@
     src: url(PlusJakartaSans-VariableFont_wght.ttf);
 }
 
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
 body {
     margin: 0;
     color: white;
@@ -12,20 +17,24 @@ body {
     justify-content: center;
     font-family: 'Plus Jakarta Sans';
     box-sizing: border-box;
+    zoom: 1.4;
 }
 
-#discord {
+#top-right {
+    position: absolute;
+    right: 26px;
+    top: 26px;
+}
+
+.discord {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     padding: 7px 12px;
 
-    position: absolute;
     width: 101px;
     height: 30px;
-    right: 26px;
-    top: 26px;
 
     background: #762ED1;
     border-radius: 4px;
@@ -71,6 +80,7 @@ h1 {
 }
 
 #email-input button {
+    cursor: pointer;
     background: #FFFFFF;
     border: 1px solid #FFFFFF;
     border-radius: 4px;
@@ -131,4 +141,64 @@ h1 {
     body {
         zoom: 1.9;
     }
+}
+
+#popup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#popup > div {
+    width: 350px;
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    padding: 64px 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
+
+    text-align: center;
+}
+
+#main {
+    position: relative;
+}
+
+.b3 {
+    margin-top: 35px;
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    /* or 115% */
+
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#x {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 14px;
+    width: 14px;
+    cursor: pointer;
 }
