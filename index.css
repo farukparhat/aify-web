@@ -4,6 +4,7 @@
 }
 
 body {
+    margin: 0;
     color: white;
     background-color: black;
     display: flex;
@@ -23,8 +24,8 @@ body {
     position: absolute;
     width: 101px;
     height: 30px;
-    right: 16px;
-    top: 16px;
+    right: 26px;
+    top: 26px;
 
     background: #762ED1;
     border-radius: 4px;
@@ -99,6 +100,7 @@ h1 {
 }
 
 #content {
+    padding: 0 20px;
     row-gap: 26px;
 }
 
@@ -109,6 +111,7 @@ h1 {
 }
 
 #bottom-images {
+    margin-top: 26px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,5 +126,9 @@ h1 {
 @media (max-width: 1000px) {
     #bottom-images {
         flex-direction: column;
+    }
+
+    body {
+        zoom: 1.9;
     }
 }
