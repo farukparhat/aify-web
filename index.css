@@ -1,0 +1,127 @@
+@font-face {
+    font-family: Plus Jakarta Sans;
+    src: url(PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+body {
+    color: white;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Plus Jakarta Sans';
+    box-sizing: border-box;
+}
+
+#discord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 7px 12px;
+
+    position: absolute;
+    width: 101px;
+    height: 30px;
+    right: 16px;
+    top: 16px;
+
+    background: #762ED1;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#content, .center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logo {
+    margin-top: 26px;
+    max-width: 126px;
+    height: 10%;
+    width: 50%;
+}
+
+h1 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+    margin: 0;
+}
+
+#email-input {
+    display: flex;
+}
+
+#email-input input {
+    width: 200px;
+    height: 30px;
+    color: white;
+    background: #000000;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+#email-input button {
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    height: 30px;
+    margin-left: -8px;
+    z-index: 10;
+    position: relative;
+
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.gray-text {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+    /* or 118% */
+
+    text-align: center;
+
+    color: #B1B1B1;
+}
+
+#content {
+    row-gap: 26px;
+}
+
+#bottom-images img {
+    min-width: 0;
+    min-height: 0;
+    max-height: 300px;
+}
+
+#bottom-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 26px;
+    column-gap: 26px;
+}
+
+#after-minutes {
+    max-width: 150px;
+}
+
+@media (max-width: 1000px) {
+    #bottom-images {
+        flex-direction: column;
+    }
+}

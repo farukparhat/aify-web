@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+    </form>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+      const encode = (data) => {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+      }
+
+      class ContactForm extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { name: "", email: "", message: "" };
+        }
+
+        /* Here’s the juicy bit for posting the form submission */
+
+        handleSubmit = e => {
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...this.state })
+          })
+            .then(() => alert("Success!"))
+            .catch(error => alert(error));
+
+          e.preventDefault();
+        };
+
+        handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+        render() {
+          const { name, email, message } = this.state;
+          return (
+            <div>
+                <div id="discord">Join Discord</div>
+                <div id="content">
+                  <img id="logo" src="logo.png" width="500" height="600"></img>
+                  <h1>
+                    Create your own AI<br/>
+                    with no code
+                  </h1>
+                  <div class="center gray-text">
+                    aify.us is launching soon. Enter your email below to get early access.
+                  </div>
+                  <form onSubmit={this.handleSubmit}>
+                    <div id="email-input">
+                      <input type="email" name="email" value={email} placeholder="email@email.com" onChange={this.handleChange} />
+                      <button type="submit">Get Access</button>
+                    </div>
+                  </form>
+                  <div id="bottom-images">
+                    <div>
+                    <img id="first-image" src="first-image.png" />
+                    </div>
+                    <div>
+                    <img id="after-minutes" src="after-minutes.png" />
+                    </div>
+                    <div>
+                    <img id="second-image" src="second-image.png" />
+                    </div>
+                  </div>
+                </div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<ContactForm />, document.getElementById("root"));
+
+    </script>
+  </body>
+</html>
