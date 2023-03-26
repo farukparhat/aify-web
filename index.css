@@ -237,6 +237,7 @@ h3 {
 
 .card-title {
     font-size: 13px;
+    margin-bottom: -24px;
 }
 
 .cards-container {
@@ -257,7 +258,7 @@ h3 {
     justify-content: space-between;
     align-items: center;
     row-gap: 26px;
-    column-gap: 26px;
+    margin-top: -18px;
 }
 
 .cards-container img.vector {
@@ -329,6 +330,11 @@ img.try-image {
 
     .cards-container .images-row img.vector {
         width: 24px;
-        height: 19px;
+        padding: 0 16px;
+    }
+
+    .try-card {
+        width: 90%;
+        padding-bottom: 24px;
     }
 }
