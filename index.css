@@ -313,8 +313,8 @@ img.try-image {
     }
 
     h3 {
-        line-height: 36px;
-        font-size: 36px;
+        line-height: 30px;
+        font-size: 30px;
     }
 
     .gray-text {
@@ -325,5 +325,10 @@ img.try-image {
     .card-title {
         font-size: 20px;
         line-height: 20px;
+    }
+
+    img.vector {
+        width: 24px;
+        height: auto;
     }
 }
