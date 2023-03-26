@@ -304,4 +304,24 @@ img.try-image {
     .forty-percent-width {
         width: 360px;
     }
+
+    h1 {
+        line-height: 40px;
+        font-size: 40px;
+    }
+
+    h3 {
+        line-height: 36px;
+        font-size: 36px;
+    }
+
+    .gray-text {
+        font-size: 22px;
+        line-height: 22px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        line-height: 20px;
+    }
 }
