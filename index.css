@@ -113,7 +113,6 @@ h1 {
 #bottom-images img {
     min-width: 0;
     min-height: 0;
-    max-height: 300px;
 }
 
 #bottom-images {
@@ -303,6 +302,6 @@ img.try-image {
     }
 
     .forty-percent-width {
-        width: auto;
+        width: 360px;
     }
 }
