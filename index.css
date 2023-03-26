@@ -232,7 +232,7 @@ h3 {
 .try-card {
     margin: 0 24px;
     width: 70%;
-    padding: 24px 0;
+    padding-bottom: 24px;
 }
 
 .card-title {
