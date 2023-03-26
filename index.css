@@ -262,7 +262,11 @@ h3 {
 }
 
 .forty-percent-width {
-    /* width: 40%; */
+    width: 40%;
+}
+
+.forty-percent-width img {
+    width: 100%;
 }
 
 .input, .ai {
