@@ -262,7 +262,8 @@ h3 {
 }
 
 .cards-container img.vector {
-    max-height: 24px;
+    max-height: 32px;
+    width: auto;
 }
 
 .forty-percent-width {
@@ -329,7 +330,7 @@ img.try-image {
     }
 
     .cards-container .images-row img.vector {
-        width: 24px;
+        width: 16%;
         padding: 0 16px;
     }
 
