@@ -262,7 +262,7 @@ h3 {
 }
 
 .forty-percent-width {
-    width: 40%;
+    /* width: 40%; */
 }
 
 .input, .ai {
@@ -272,4 +272,16 @@ h3 {
 
 .input img, .ai img{
     margin: 0 8px;
+}
+
+.video iframe {
+    max-width: 80%;
+}
+
+img.try-image {
+    width: 100%;
+}
+
+.images-row {
+    text-align: center;
 }
