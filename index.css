@@ -268,9 +268,18 @@ h3 {
 
 .forty-percent-width {
     width: 40%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.forty-percent-width img {
+.pad-right {
+    padding-right: 8px;
+}
+
+.forty-percent-width > img {
     width: 100%;
 }
 
