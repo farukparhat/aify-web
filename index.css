@@ -238,6 +238,8 @@ h3 {
 .card-title {
     font-size: 13px;
     margin-bottom: -24px;
+    z-index: 100;
+    position: relative;
 }
 
 .cards-container {
