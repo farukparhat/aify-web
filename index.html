@@ -26,6 +26,20 @@
           .join("&");
       };
 
+      const HuggingFaceComponent = () => {
+        return (
+          <div class="hugging-face-component">
+            <div class="input-container">
+              <input class="hugging-face-input" value="bmw" />
+              <button>Create</button>
+            </div>
+            <div class="image-result-container">
+              <img src="bmw.png" />
+            </div>
+          </div>
+        );
+      }
+
       class ContactForm extends React.Component {
         constructor(props) {
           super(props);
@@ -114,7 +128,7 @@
                         src="input.png"
                         width="16px"
                         height="16px"
-                        class="pad-right"
+                        className="pad-right"
                       />
                       Upload 5 to 20 images
                     </span>
@@ -136,6 +150,8 @@
                   </div>
                 </div>
               </div>
+              <h3>Try line art AI created with aify</h3>
+              <HuggingFaceComponent />
               <h3>How aify works</h3>
               <div class="video">
                 <iframe
@@ -143,9 +159,9 @@
                   height="315"
                   src="https://www.youtube.com/embed/z_FnFom8t9A"
                   title="YouTube video player"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </div>
               <h3>Aify models by our users</h3>
