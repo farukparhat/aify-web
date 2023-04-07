@@ -1,17 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>aify</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <input type="email" name="email" />
     </form>
@@ -19,146 +17,225 @@
     <div id="root"></div>
 
     <script type="text/babel">
-
       const encode = (data) => {
         return Object.keys(data)
-            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-            .join("&");
-      }
+          .map(
+            (key) =>
+              encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+          )
+          .join("&");
+      };
 
       class ContactForm extends React.Component {
         constructor(props) {
           super(props);
-          this.state = {email: "", showPopup: false};
+          this.state = { email: "", showPopup: false };
         }
 
         /* Here’s the juicy bit for posting the form submission */
 
-        handleSubmit = e => {
-          this.setState({showPopup: true});
+        handleSubmit = (e) => {
+          this.setState({ showPopup: true });
           fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", email: this.state.email })
-          }).catch()
+            body: encode({ "form-name": "contact", email: this.state.email }),
+          }).catch();
 
           e.preventDefault();
         };
 
-        handleChange = e => this.setState({ [e.target.name]: e.target.value });
+        handleChange = (e) =>
+          this.setState({ [e.target.name]: e.target.value });
 
         render() {
-          const { email, showPopup} = this.state;
+          const { email, showPopup } = this.state;
           return (
             <div id="main">
-              <div id="popup" style={{display: showPopup ? 'flex' : 'none' }}>
+              <div id="popup" style={{ display: showPopup ? "flex" : "none" }}>
                 <div>
-                  <div id="x" onClick={() => this.setState({showPopup: false})}>
+                  <div
+                    id="x"
+                    onClick={() => this.setState({ showPopup: false })}
+                  >
                     <img src="x.png" width="14" height="14" />
                   </div>
                   <h2>Try aify in Discord!</h2>
                   <div className="b3">You are now on the waitlist</div>
-                  <a className="discord" href="https://discord.gg/uVRq6zWGbz" target="_blank">
+                  <a
+                    className="discord"
+                    href="https://discord.gg/uVRq6zWGbz"
+                    target="_blank"
+                  >
                     <img src="discord.png" width="32px" height="24px" />
                     Join Discord
                   </a>
                 </div>
               </div>
-                <a id="top-right" className="discord" href="https://discord.gg/uVRq6zWGbz" target="_blank">
-                  Join Discord </a>
-                <div id="content">
-                  <img id="logo" src="logo.png" width="500" height="600"></img>
-                  <h1>
-                    Create your own AI<br/>
-                    with no code
-                  </h1>
-                  <div className="center gray-text">
-                    aify.us is launching soon. Enter your email<br/> below to get early access.
+              <a
+                id="top-right"
+                className="discord"
+                href="https://discord.gg/uVRq6zWGbz"
+                target="_blank"
+              >
+                Join Discord{" "}
+              </a>
+              <div id="content">
+                <img id="logo" src="logo.png" width="500" height="600"></img>
+                <h1>
+                  Create your own AI
+                  <br />
+                  with no code
+                </h1>
+                <div className="center gray-text">
+                  aify uses your image only on your AI.
+                  <br /> Create your own customized AI.
+                </div>
+                <form onSubmit={this.handleSubmit}>
+                  <div id="email-input">
+                    <input
+                      type="email"
+                      name="email"
+                      value={email}
+                      placeholder="email@email.com"
+                      onChange={this.handleChange}
+                    />
+                    <button type="submit">Get Access</button>
                   </div>
-                  <form onSubmit={this.handleSubmit}>
-                    <div id="email-input">
-                      <input type="email" name="email" value={email} placeholder="email@email.com" onChange={this.handleChange} />
-                      <button type="submit">Get Access</button>
-                    </div>
-                  </form>
-                  <div id="bottom-images">
-                    <div class="forty-percent-width">
-                      <img id="first-image" src="first-image.png" />
-                      <span>
-                        <img src="input.png" width="16px" height="16px" class="pad-right"/>Upload 5 to 20 images
-                      </span>
-                      </div>
-                    <div>
+                </form>
+                <div className="center gray-text underlined">
+                  <a href="mailto:aify.help@gmail.com">Request demo</a>
+                </div>
+                <div id="bottom-images">
+                  <div class="forty-percent-width">
+                    <img id="first-image" src="first-image.png" />
+                    <span>
+                      <img
+                        src="input.png"
+                        width="16px"
+                        height="16px"
+                        class="pad-right"
+                      />
+                      Upload 5 to 20 images
+                    </span>
+                  </div>
+                  <div>
                     <img id="after-minutes" src="after-minutes.png" />
-                    </div>
-                    <div class="forty-percent-width">
-                      <img id="second-image" src="second-image.png" />
-                      <span>
-                        <img src="ai.png" width="16px" height="16px" class="pad-right"/>Create your own AI with your own assets
-                      </span>
-                    </div>
                   </div>
-                </div>
-                <h3>How aify works</h3>
-                <div class="video">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/z_FnFom8t9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <h3>Try out AI by our users</h3>
-                <div class="cards-container">
-                  <div class="try-card">
-                    <span class="card-title">Photography by @realjasonmatias<a className="button try-button" href="https://huggingface.co/Alexwww/jason-art?text=photography+minimal+symmetric+of+a+tree+above+clouds" target="_blank">Try AI</a></span>
-                    <div class="images-row">
-                      <div>
-                        <img src="try-1-1.png" class="try-image"/>
-                        <div class="input"><img src="input.png" width="16px" height="16px"/>Input</div>
-                      </div>
-                      <img class="vector" src="vector.png" />
-                      <div>
-                        <img src="try-1-2.png" class="try-image"/>
-                        <div class="ai"><img src="ai.png" width="16px" height="16px"/>AI</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="try-card">
-                    <span class="card-title">Illustration by @georgie.illust
-                    <a className="button try-button" href="https://huggingface.co/sd-dreambooth-library/georgeart?text=flat+minimal+illustration+of+woman+with+blue+hair" target="_blank">Try AI</a>
+                  <div class="forty-percent-width">
+                    <img id="second-image" src="second-image.png" />
+                    <span>
+                      <img
+                        src="ai.png"
+                        width="16px"
+                        height="16px"
+                        class="pad-right"
+                      />
+                      Create your own AI with your own assets
                     </span>
-                    <div class="images-row">
-                      <div>
-                        <img src="try-2-1.png" class="try-image"/>
-                        <div class="input"><img src="input.png" width="16px" height="16px"/>Input</div>
-                      </div>
-                      <img class="vector" src="vector.png" />
-                      <div>
-                        <img src="try-2-2.png" class="try-image"/>
-                        <div class="ai"><img src="ai.png" width="16px" height="16px"/>AI</div>
+                  </div>
+                </div>
+              </div>
+              <h3>How aify works</h3>
+              <div class="video">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/z_FnFom8t9A"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h3>Aify models by our users</h3>
+              <div class="cards-container">
+                <div class="try-card">
+                  <span class="card-title">
+                    Photography by @realjasonmatias
+                  </span>
+                  <div class="images-row">
+                    <div>
+                      <img src="try-1-1.png" class="try-image" />
+                      <div class="input">
+                        <img src="input.png" width="16px" height="16px" />
+                        Jason’s photography
                       </div>
                     </div>
-                  </div>
-                  <div class="try-card">
-                    <span class="card-title">Line art by @alex
-                      <a className="button try-button" href="https://huggingface.co/Alexwww/alex-s-one-line-art?text=line+art+drawing+of+lion" target="_blank">Try AI</a>
-                    </span>
-                    <div class="images-row">
-                      <div>
-                        <img src="try-3-1.png" class="try-image"/>
-                        <div class="input"><img src="input.png" width="16px" height="16px"/>Input</div>
-                      </div>
-                      <img class="vector" src="vector.png" />
-                      <div>
-                        <img src="try-3-2.png" class="try-image"/>
-                        <div class="ai"><img src="ai.png" width="16px" height="16px"/>AI</div>
+                    <img class="vector" src="vector.png" />
+                    <div>
+                      <img src="try-1-2.png" class="try-image" />
+                      <div class="ai">
+                        <img src="ai.png" width="16px" height="16px" />
+                        AI prompt: Tree
                       </div>
                     </div>
                   </div>
                 </div>
+                <div class="try-card">
+                  <span class="card-title">
+                    Illustration by @georgie.illust
+                  </span>
+                  <div class="images-row">
+                    <div>
+                      <img src="try-2-1.png" class="try-image" />
+                      <div class="input">
+                        <img src="input.png" width="16px" height="16px" />
+                        George’s illustrations
+                      </div>
+                    </div>
+                    <img class="vector" src="vector.png" />
+                    <div>
+                      <img src="try-2-2.png" class="try-image" />
+                      <div class="ai">
+                        <img src="ai.png" width="16px" height="16px" />
+                        AI prompt: Tree
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="try-card">
+                  <span class="card-title">Line art by @alex</span>
+                  <div class="images-row">
+                    <div>
+                      <img src="try-3-1.png" class="try-image" />
+                      <div class="input">
+                        <img src="input.png" width="16px" height="16px" />
+                        Alex’s line drawings
+                      </div>
+                    </div>
+                    <img class="vector" src="vector.png" />
+                    <div>
+                      <img src="try-3-2.png" class="try-image" />
+                      <div class="ai">
+                        <img src="ai.png" width="16px" height="16px" />
+                        AI prompt: Tree
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3>Pricing</h3>
+              <div class="flex-row">
+                <div class="pricing-card">
+                  <span class="card-title">Free</span>
+                  <p>
+                    -Use aify in Discord -Training your AI with your images
+                    -Request your AI to aify engineers
+                  </p>
+                </div>
+                <div class="pricing-card">
+                  <span class="card-title">Pro</span>
+                  <p></p>
+                </div>
+              </div>
             </div>
           );
         }
       }
 
       ReactDOM.render(<ContactForm />, document.getElementById("root"));
-
     </script>
+    -->
   </body>
 </html>
