@@ -366,8 +366,9 @@ img.try-image {
     justify-content: center;
     align-items: center;
     row-gap: 32px;
-    width: 40%;
+    width: 60%;
     margin: auto;
+    max-width: 300px;
 }
 
 .hugging-face-component .input-container {
@@ -390,11 +391,20 @@ img.try-image {
     border: 1px solid white;
     border-radius: 8px;
     aspect-ratio: 1/1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hugging-face-component .image-result-container img{
     width: 100%;
     height: 100%;
+}
+
+.hugging-face-component .image-result-container img.loading-image{
+    width: 50%;
+    height: 50%;
 }
 
 @media (max-width: 1000px) {

@@ -27,18 +27,58 @@
       };
 
       const HuggingFaceComponent = () => {
+        const [query, setQuery] = React.useState("bmw");
+        const [data, setData] = React.useState(null);
+        const [loading, setLoading] = React.useState(false);
+        const [imgUrl, setImgUrl] = React.useState("bmw.png");
+
+        const handleChange = (event) => {
+          setQuery(event.target.value);
+        };
+
+        const queryHuggingFace = async(data) => {
+          const response = await fetch(
+            "https://api-inference.huggingface.co/models/Alexwww/alex-s-one-line-art",
+            {
+              headers: { Authorization: "Bearer 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" },
+              method: "POST",
+              body: JSON.stringify(data),
+            }
+          );
+          const result = await response.blob();
+          return result;
+        }
+
+        const handleCreate = async () => {
+          setLoading(true);
+          try {
+            queryHuggingFace({ inputs: `one line art drawing of a ${query}` }).then((response) => {
+              console.log(response);
+              setImgUrl(URL.createObjectURL(response))
+              setLoading(false);
+            });
+          } catch (error) {
+            console.error(error);
+            setLoading(false);
+          }
+        }
+
         return (
           <div class="hugging-face-component">
             <div class="input-container">
-              <input class="hugging-face-input" value="bmw" />
-              <button>Create</button>
+              <input
+                class="hugging-face-input"
+                value={query}
+                onChange={handleChange}
+              />
+              <button onClick={handleCreate}>Create</button>
             </div>
             <div class="image-result-container">
-              <img src="bmw.png" />
+              <img src={loading ? 'puff.svg' : imgUrl} className={loading && 'loading-image'}/>
             </div>
           </div>
         );
-      }
+      };
 
       class ContactForm extends React.Component {
         constructor(props) {
