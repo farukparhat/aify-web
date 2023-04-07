@@ -18,6 +18,7 @@ body {
     font-family: 'Plus Jakarta Sans';
     box-sizing: border-box;
     zoom: 1.4;
+    margin-bottom: 64px;
 }
 
 #top-right {
@@ -246,7 +247,6 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 64px;
 }
 
 .cards-container img {
@@ -311,6 +311,55 @@ img.try-image {
     text-decoration: underline;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.pricing-cards-container {
+    justify-content: center;
+    column-gap: 64px;
+    flex-wrap: wrap;
+    row-gap: 64px;
+}
+
+.pricing-card {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 32px;
+    box-sizing: border-box;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+.pricing-card .card-title {
+    font-size: 16px;
+    display: contents;
+}
+
+.pricing-card p{
+    font-size: 12px;
+    flex-grow: 1;
+}
+
+.pricing-card .button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+    border-radius: 64px;
+}
+
+.pricing-card.free .button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+    border-radius: 64px;
+    background-color: white;
+    color: black;
+}
+
 @media (max-width: 1000px) {
     #bottom-images {
         flex-direction: column;
@@ -352,5 +401,9 @@ img.try-image {
     .try-card {
         width: 90%;
         padding-bottom: 24px;
+    }
+
+    .pricing-card {
+        width: 60%;
     }
 }
