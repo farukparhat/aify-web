@@ -273,8 +273,8 @@ h3 {
 }
 
 .cards-container img.vector {
-    max-height: 32px;
-    width: auto;
+    height: 24px;
+    width: 18px;
 }
 
 .forty-percent-width {
@@ -309,7 +309,9 @@ h3 {
 
 img.try-image {
     width: 100%;
-    padding-top: 32px;
+    margin-top: 32px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .images-row {
@@ -418,6 +420,11 @@ img.try-image {
     height: 50%;
 }
 
+.request-help {
+    font-size: 18px;
+    color: white;
+}
+
 @media (max-width: 1000px) {
     #bottom-images {
         flex-direction: column;
@@ -451,10 +458,7 @@ img.try-image {
         line-height: 20px;
     }
 
-    .cards-container .images-row img.vector {
-        width: 16%;
-        padding: 0 16px;
-    }
+    .cards-container .images-row img.vector { }
 
     .try-card {
         width: 90%;
