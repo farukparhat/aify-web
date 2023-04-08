@@ -453,15 +453,13 @@ img.try-image {
 
     .gray-text {
         font-size: 22px;
-        line-height: 32px;
+        line-height: 26px;
     }
 
     .card-title {
         font-size: 20px;
         line-height: 20px;
     }
-
-    .cards-container .images-row img.vector { }
 
     .try-card {
         width: 90%;
