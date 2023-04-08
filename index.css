@@ -329,9 +329,9 @@ img.try-image {
 
 .pricing-cards-container {
     justify-content: center;
-    column-gap: 64px;
+    column-gap: 20px;
     flex-wrap: wrap;
-    row-gap: 64px;
+    row-gap: 20px;
 }
 
 .pricing-card {
@@ -342,7 +342,7 @@ img.try-image {
     width: 30%;
     display: flex;
     flex-direction: column;
-    height: 300px;
+    height: 360px;
 }
 
 .pricing-card .card-title {
@@ -350,9 +350,10 @@ img.try-image {
     display: contents;
 }
 
-.pricing-card p{
-    font-size: 12px;
+.pricing-card p {
     flex-grow: 1;
+    font-size: 14px;
+    line-height: 22px;
 }
 
 .pricing-card .button {
