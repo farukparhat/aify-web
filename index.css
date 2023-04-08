@@ -275,6 +275,7 @@ h3 {
     height: 24px;
     width: 18px;
     margin: 0 24px;
+    min-width: 18px;
 }
 
 .forty-percent-width {
