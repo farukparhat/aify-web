@@ -82,7 +82,7 @@ h1 {
     border-radius: 4px;
     padding: 0 8px;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 #email-input button, .hugging-face-component button {
@@ -100,6 +100,7 @@ h1 {
     font-weight: 500;
     height:100%;
     box-sizing: border-box;
+    font-size: 17px;
 }
 
 .gray-text {
