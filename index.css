@@ -85,10 +85,6 @@ h1 {
     font-size: 16px;
 }
 
-#email-input input:focus, .hugging-face-component input  {
-    outline-width: 0;
-}
-
 #email-input button, .hugging-face-component button {
     cursor: pointer;
     background: #FFFFFF;
