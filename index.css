@@ -71,6 +71,7 @@ h1 {
     position: relative;
     height: 36px;
     width: 300px;
+    box-sizing: border-box;
 }
 
 #email-input input, .hugging-face-component input {
@@ -102,6 +103,7 @@ h1 {
     position: absolute;
     font-weight: 500;
     height:100%;
+    box-sizing: border-box;
 }
 
 .gray-text {
@@ -389,6 +391,7 @@ img.try-image {
     width: 100%;
     position: relative;
     height: 36px;
+    box-sizing: border-box;
 }
 
 .hugging-face-component input{
